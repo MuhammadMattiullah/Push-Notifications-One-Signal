@@ -1,0 +1,50 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
+      var OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "031bf3b8-e97b-40b0-a397-8f99827efa5e",
+      autoRegister: true,
+      notifyButton: {
+        enable: true,
+      },
+      promptOptions: {
+          /* actionMessage limited to 90 characters */
+          actionMessage: "We'd like to show you notifications for the latest news and updates.",
+          /* acceptButtonText limited to 15 characters */
+          acceptButtonText: "ALLOW",
+          /* cancelButtonText limited to 15 characters */
+          cancelButtonText: "NO THANKS"
+        }
+    });
+    if (Notification.permission === "granted") {
+      console.log('permission granted!');
+        // Automatically subscribe user if deleted cookies and browser shows "Allow"
+        OneSignal.getUserId()
+          .then(function(userId) {
+            console.log(userId)
+            if (!userId) {
+              OneSignal.registerForPushNotifications();
+            }
+          })
+          .catch(function(err){
+            console.log(err);
+          })
+      } else {
+        console.log('permission not granted!');
+        OneSignal.showHttpPrompt();
+      }
+  });
+    </script>
+</head>
+
+<body>
+    <h1>Push Notifications from BlueEast Orient ....</h1>
+</body>
+</html>

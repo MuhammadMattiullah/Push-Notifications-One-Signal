@@ -1,0 +1,71 @@
+// var myClient = new oneSignal.Client({    
+//     userAuthKey: 'YWI3MjI0MjgtODI4My00YmQ5LTg3NTAtNzdlOWIxMTNlMzE2',    
+//     // note that "app" must have "appAuthKey" and "appId" keys    
+//     app: { appAuthKey: 'OTMxM2VkMzgtYmNlOS00NGYxLTk2MTUtYWNlZDY4MzllOWRl', appId: '99f703f7-338a-42d2-945a-e144fe2bc355' }    
+//  });  
+//  var firstNotification = new oneSignal.Notification({    
+//     // contents: {    
+//     //     en: "Test notification from Mattiullah",    
+//     //     tr: "Test notification" ,
+//     //     title : "Hello"   
+//     // },
+//     // headings : {
+//     //     en: "Subscription Alert", 
+//     // },
+//     // subtitle : {
+//     //     en: "Test notification from Mattiullah",
+
+//     // },
+//     content_available : 1,
+//     included_segments: ["Active Users"]  
+// });    
+// firstNotification.postBody["data"] = {"abc": "123", "foo": "bar"};     
+    
+// // send this notification to All Users except Inactive ones    
+// myClient.sendNotification(firstNotification, function (err, httpResponse,data) {    
+//    if (err) {    
+//        console.log('Something went wrong...');    
+//    } else {    
+//        console.log(data, httpResponse.statusCode);    
+//    }    
+// });
+
+// var sendNotification = function(data) {
+//     var headers = {
+//       "Content-Type": "application/json; charset=utf-8",
+//       "Authorization": "Basic OTMxM2VkMzgtYmNlOS00NGYxLTk2MTUtYWNlZDY4MzllOWRl"
+//     };
+    
+//     var options = {
+//       host: "onesignal.com",
+//       path: "/api/v1/notifications",
+//       method: "POST",
+//       headers: headers
+//     };
+    
+//     var https = require('https');
+//     var req = https.request(options, function(res) {  
+//       res.on('data', function(data) {
+//         console.log("Response:");
+//         console.log(JSON.parse(data));
+//       });
+//     });
+    
+//     req.on('error', function(e) {
+//       console.log("ERROR:");
+//       console.log(e);
+//     });
+    
+//     req.write(JSON.stringify(data));
+//     req.end();
+//   };
+  
+//   var message = { 
+//     app_id: "99f703f7-338a-42d2-945a-e144fe2bc355",
+//     contents: {"en": "English Message"},
+//     headings:{en:"Alert"},
+//     included_segments: ["All"],
+//     postBody : {"name":"Muhammad"}
+//   };
+  
+//sendNotification(message);
